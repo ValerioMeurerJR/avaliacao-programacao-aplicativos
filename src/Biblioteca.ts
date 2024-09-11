@@ -6,8 +6,8 @@ import Ebook from "./Ebook";
 export default class Biblioteca {
     livros: Livro[] = []
 
-    adicionarLivro(): void {
-        console.log("---------------CRIANDO CONTA-------------------")
+    public adicionarLivro(): void {
+        console.log("---------------CRIAR LIVRO-------------------")
         var titulo = leia.question("DIGITE O TITULO: ");
         var autor = leia.question("DIGITE O AUTOR: ");
         var tipoLivro = leia.keyInSelect(["Livro Fisico", "Ebook"], 'ESCOLHA UMA OPÇÃO: ') + 1;
@@ -22,7 +22,7 @@ export default class Biblioteca {
         this.save(livro);
     }
 
-    removerLivro(): void {
+    public removerLivro(): void {
         console.log("---------------DELETAR LIVRO-------------------")
         var isbnLivro = leia.question("DIGITE O ISBN DO LIVRO: ")
         for (var i = 0; i < this.livros.length; i++) {
@@ -32,7 +32,7 @@ export default class Biblioteca {
             }
         }        
     }
-    buscarLivro(): void {
+    public buscarLivro(): void {
         for (var i = 0; i < this.livros.length; i++) {
             console.log("------------------------------------------------------")
             this.livros[i].exibirDetalhes();
@@ -42,4 +42,17 @@ export default class Biblioteca {
         this.livros.push(livro);
         console.log(`Livro ${livro.getisbn()} foi criada com sucesso`);
     }
+    public getListaLivros(): Livro[]{
+        return this.livros;
+    }   
+    public exibirReservas(){
+        var isbn = leia.question("DIGITE O ISBN DO LIVRO: ");
+        for (var i = 0; i < this.livros.length; i++) {
+            if (isbn === this.livros[i].getisbn()) {
+                this.livros[i].listaHistorico();
+                return;
+            }
+        }    
+    }
+
 }

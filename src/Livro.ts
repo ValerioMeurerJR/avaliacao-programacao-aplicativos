@@ -1,7 +1,10 @@
+import Aluno from "./aluno";
+
 export default class Livro {
     titulo: string;
     autor: string;
     isbn: string;
+    historico: Aluno[] = []
     constructor(titulo: string, autor: string) {
         this.titulo = titulo;
         this.autor = autor;
@@ -12,7 +15,17 @@ export default class Livro {
         console.log(`Titulo: ${this.titulo}`);
         console.log(`Autor: ${this.autor}`);
     }
-    public getisbn(){
+    public getisbn(): string {
         return this.isbn;
     }
+    public setHistorico(aluno: Aluno): void {
+        this.historico.push(aluno);
+    }
+    
+    public listaHistorico(): void{
+        console.log(this.historico)
+    }
+
+
+
 }

@@ -1,7 +1,9 @@
 import leia from "readline-sync"
 import Biblioteca from "./Biblioteca";
+import Emprestimo from "./Emprestimo";
 
 var biblioteca = new Biblioteca();
+var emprestimos = new Emprestimo()
 do {
     console.log("---------------MENU-------------------")
     var Menu = leia.keyInSelect(["CRIAR LIVRO", "REMOVER LIVRO", "BUSCAR LICROS"], 'ESCOLHA UMA OPÇÃO: ') + 1
@@ -14,6 +16,15 @@ do {
             break;
         case 3:
             biblioteca.buscarLivro();
+            break;
+        case 4:
+            emprestimos.adicionarAluno();
+            break;
+        case 5:
+            emprestimos.ReservarLivro(biblioteca);
+            break;
+        case 6:
+            emprestimos.ListaReservas();
             break;
         default:
             console.log("VOCE ESCOLHEU SAIR");
