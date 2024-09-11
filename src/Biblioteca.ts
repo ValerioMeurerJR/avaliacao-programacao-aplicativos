@@ -45,7 +45,7 @@ export default class Biblioteca {
     public getListaLivros(): Livro[]{
         return this.livros;
     }   
-    public exibirReservas(){
+    public ListaHistoricoLivros(){
         var isbn = leia.question("DIGITE O ISBN DO LIVRO: ");
         for (var i = 0; i < this.livros.length; i++) {
             if (isbn === this.livros[i].getisbn()) {
