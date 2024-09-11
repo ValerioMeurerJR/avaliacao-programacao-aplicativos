@@ -6,7 +6,7 @@ var biblioteca = new Biblioteca();
 var emprestimos = new Emprestimo()
 do {
     console.log("---------------MENU-------------------")
-    var Menu = leia.keyInSelect(["CRIAR LIVRO", "REMOVER LIVRO", "BUSCAR LICROS", "ADICIONAR ALUNO", "RESERVAR LIVRO", "LISTAR RESERVAS", "LISTA HISTORICO LIVROS" ], 'ESCOLHA UMA OPÇÃO: ') + 1
+    var Menu = leia.keyInSelect(["CRIAR LIVRO", "REMOVER LIVRO", "BUSCAR LICROS", "ADICIONAR ALUNO", "RESERVAR LIVRO", "LISTAR RESERVAS", "LISTA HISTORICO LIVROS", "LISTA ALUNOS" ], 'ESCOLHA UMA OPÇÃO: ') + 1
     switch (Menu) {
         case 1:
             biblioteca.adicionarLivro();
@@ -28,6 +28,9 @@ do {
             break;
         case 7:
             biblioteca.ListaHistoricoLivros();
+            break;
+        case 8:
+            emprestimos.ListaAlunos();
             break;
         default:
             console.log("VOCE ESCOLHEU SAIR");

@@ -7,10 +7,10 @@ export default class Emprestimo {
     alunos: Aluno[] = []
 
     public adicionarAluno(): void {
-        console.log("---------------RESERVAR ALUNO-------------------")
-        var matricula = leia.question("DIGITE O NUMERO DE MATRICULA: ");
+        console.log("---------------ADICIONAR ALUNO-------------------")
+        var nome = leia.question("DIGITE NOM DO ALUNO: ");
         var telefone = leia.question("DIGITE O TELEFONE: ");
-        var aluno = new Aluno(matricula, telefone)
+        var aluno = new Aluno(nome, telefone)
         this.saveAluno(aluno);
     }
 
@@ -39,6 +39,10 @@ export default class Emprestimo {
     private saveAluno(aluno: Aluno) {
         this.alunos.push(aluno);
         console.log(`Aluno ${aluno.getmatricula()} foi criada com sucesso`);
+    }
+
+    public ListaAlunos(): void {
+        this.alunos.forEach(aluno => aluno.exibirDetalhesAluno())
     }
 
     

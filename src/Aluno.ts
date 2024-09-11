@@ -13,7 +13,9 @@ export default class Aluno {
     public getmatricula(): string {
         return this.matricula;
     }
-
+    public getNome(): string {
+        return this.nome;
+    }
     public getlivros(): Livro[] {
         return this.livros;
     }
@@ -23,7 +25,14 @@ export default class Aluno {
     }
     
     public exibirReservas(): void {
-        console.table(this.livros)
+        console.log(`Nome: ${this.nome}`);
+        this.livros.forEach(livro => console.log(`Titulo: ${livro.getTitulo()}`))
     }    
-    
+
+    public exibirDetalhesAluno(): void {
+        console.log(`Matricula: ${this.matricula}`);
+        console.log(`Nome: ${this.nome}`);
+        console.log(`telefone: ${this.telefone}`);
+        this.livros.forEach(livro => console.log(`Titulo: ${livro.getTitulo()}`))
+    }
 }
